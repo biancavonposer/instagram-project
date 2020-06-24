@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -8,11 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '3267cff4125ebeafd8bfd7831778734fff6a1820b65996d8c123514a7f6746850b2b2eadfa8b1e875410aef1473275ad6a026770cea1386c56d5c6acc09064f8'
-  
-  # ==> Controller configuration
-  # Configure the parent class to the devise controllers.
-  # config.parent_controller = 'DeviseController'
+  # config.secret_key = '5ed9c774634d02e4e7e39990295682dc73658d1351456439551f83b752984bc1c135a50dc6600225ffee969df11bca589c894af13641383f22349ec79ea90f73'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -114,7 +108,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c13a4e50c6a6fc4a0cf80bdc7f03eb2b76e65313ea1d00b7ae3d3d6c3d1379eef7848f62fd713001f63c791a8b7efaf70e8508430fd8ca35f62506c6f732001b'
+  # config.pepper = 'dbd93bce4b42a33dfd2f956ea9186c531bb475b3f1cd8921c27c72c08bbc0f2546408e137764fb427b9bc0cdd584bf0024bf58e21cb3def2fc271dbb299d1d51'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -257,7 +251,6 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-   #added
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -279,9 +272,7 @@ Devise.setup do |config|
   # config.router_name = :my_engine
   #
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
-  # so you need to do it manually. For the users scope, it would be:  
+  # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-
-
-
+  config.omniauth :twitter, ENV["twitter_app_id"], ENV["twitter_app_secret"]
 end
