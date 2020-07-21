@@ -9,7 +9,9 @@
           <%= post.comments.size %>
         </span>
       </div>
-      <%= image_tag post.photos.first.image.url(:standard), class: "card-img-top image-preview" %>
+      <% if post.photos.first.present? %>
+        <%= image_tag post.photos.first.image.url(:standard), class: "card-img-top image-preview" %>
+      <% end %>
     <% end %>
   </div>
 <% end %>
